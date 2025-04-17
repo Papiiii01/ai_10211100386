@@ -2,6 +2,7 @@ import streamlit as st
 import asyncio
 import os
 import platform
+import nest_asyncio
 from pages.regression import show_regression
 from pages.clustering import show_clustering
 from pages.neural_network import show_neural_network
@@ -16,6 +17,8 @@ if platform.system() == 'Windows':
     # Create and set a new event loop
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
+    # Apply nest_asyncio to allow nested event loops
+    nest_asyncio.apply()
 
 def main():
     st.set_page_config(
