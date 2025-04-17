@@ -97,7 +97,7 @@ A comprehensive AI analysis tool that provides multiple machine learning and AI 
    - Source attribution
    - Confidence scoring
 
-## Performance Analysis vs ChatGPT [4 marks]
+## Performance Analysis vs ChatGPT 
 
 ### Comparative Analysis
 
