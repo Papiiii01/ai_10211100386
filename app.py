@@ -1,8 +1,21 @@
 import streamlit as st
+import asyncio
+import os
+import platform
 from pages.regression import show_regression
 from pages.clustering import show_clustering
 from pages.neural_network import show_neural_network
 from pages.llm import show_llm
+
+# Disable Streamlit's file watcher to avoid PyTorch conflicts
+os.environ["STREAMLIT_SERVER_FILE_WATCHER_TYPE"] = "none"
+
+# Configure asyncio event loop policy for Windows
+if platform.system() == 'Windows':
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    # Create and set a new event loop
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
 
 def main():
     st.set_page_config(
