@@ -1,32 +1,37 @@
 import streamlit as st
-import asyncio
 import os
 import platform
-import nest_asyncio
 
 # Disable Streamlit's file watcher to avoid PyTorch conflicts
 os.environ["STREAMLIT_SERVER_FILE_WATCHER_TYPE"] = "none"
 
-# Configure asyncio event loop policy
+# Import asyncio and nest_asyncio after setting environment variables
+import asyncio
+import nest_asyncio
+
+# Configure asyncio for Windows
 if platform.system() == 'Windows':
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
-# Apply nest_asyncio before creating any event loops
+# Apply nest_asyncio to allow nested event loops
 nest_asyncio.apply()
 
-# Create and set a new event loop if one isn't already running
-try:
-    loop = asyncio.get_running_loop()
-except RuntimeError:
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-
+# Import pages after asyncio setup
 from pages.regression import show_regression
 from pages.clustering import show_clustering
 from pages.neural_network import show_neural_network
 from pages.llm import show_llm
 
 def main():
+    # Configure Streamlit to handle async operations
+    if not hasattr(st.session_state, 'async_loop'):
+        try:
+            loop = asyncio.get_running_loop()
+        except RuntimeError:
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+        st.session_state.async_loop = loop
+
     st.set_page_config(
         page_title="AI Analysis Dashboard",
         page_icon="🤖",
