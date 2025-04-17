@@ -1,16 +1,28 @@
+# Core
 streamlit==1.32.0
+
+# LangChain
 langchain==0.1.12
-langchain-community==0.0.27
-langchain-community>=0.0.28,<0.1      # satisfy langchain’s dependency
+langchain-community>=0.0.28,<0.1  # Satisfy langchain's dependency
+
+# HuggingFace and transformers integration
 langchain-huggingface==0.1.2
+
+# ML & NLP libraries
 transformers==4.38.2
 torch==2.2.0
-numpy==1.26.4
-plotly==5.19.0
 faiss-cpu==1.7.4
 sentence-transformers==2.5.1
+
+# Data processing and environment
+numpy==1.26.4
+pandas==2.2.1
 python-dotenv==1.0.1
 pypdf==4.0.2
-pandas==2.2.1
+
+# HuggingFace integration
 huggingface-hub==0.21.4
-accelerate==0.27.2 
+accelerate==0.27.2
+
+# Plotting
+plotly==5.19.0
