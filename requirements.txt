@@ -1,27 +1,40 @@
-# Core
 streamlit==1.32.0
-
-# LangChain
 langchain==0.1.12
 langchain-community>=0.0.28,<0.1
-
-# HuggingFace and transformers integration
 langchain-huggingface==0.1.2
-transformers>=4.39.0  # Update transformers to satisfy langchain-huggingface dependency
-
-# ML & NLP libraries
+transformers>=4.39.0
+sentence-transformers>=2.6.0
 torch==2.2.0
 faiss-cpu==1.7.4
-sentence-transformers==2.5.1
-
-# Data processing and environment
 numpy==1.26.4
 pandas==2.2.1
 python-dotenv==1.0.1
 pypdf==4.0.2
-
-# HuggingFace integration
-huggingface-hub==0.23.0  # Ensure compatibility with langchain-huggingface
-
-# Plotting
+huggingface-hub==0.23.0
 plotly==5.19.0
+altair<6,>=4.0
+blinker<2,>=1.0.0
+cachetools<6,>=4.0
+click<9,>=7.0
+packaging<24,>=16.8
+pillow<11,>=7.1.0
+protobuf<5,>=3.20
+pyarrow>=7.0
+requests<3,>=2.27
+rich<14,>=10.14.0
+tenacity<9,>=8.1.0
+toml<2,>=0.10.1
+gitpython!=3.1.19,<4,>=3.0.7
+pydeck<1,>=0.8.0b4
+tornado<7,>=6.0.3
+watchdog>=2.1.5
+PyYAML>=5.3
+SQLAlchemy<3,>=1.4
+aiohttp<4.0.0,>=3.8.3
+async-timeout<5.0.0,>=4.0.0
+dataclasses-json<0.7,>=0.5.7
+jsonpatch<2.0,>=1.33
+langchain-core<0.2.0,>=0.1.31
+langchain-text-splitters<0.1,>=0.0.1
+langsmith<0.2.0,>=0.1.17
+pydantic<3,>=1
