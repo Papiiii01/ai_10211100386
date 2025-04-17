@@ -3,13 +3,13 @@ streamlit==1.32.0
 
 # LangChain
 langchain==0.1.12
-langchain-community>=0.0.28,<0.1  # Satisfy langchain's dependency
+langchain-community>=0.0.28,<0.1
 
 # HuggingFace and transformers integration
 langchain-huggingface==0.1.2
+transformers>=4.39.0  # Update transformers to satisfy langchain-huggingface dependency
 
 # ML & NLP libraries
-transformers==4.38.2
 torch==2.2.0
 faiss-cpu==1.7.4
 sentence-transformers==2.5.1
@@ -21,8 +21,7 @@ python-dotenv==1.0.1
 pypdf==4.0.2
 
 # HuggingFace integration
-huggingface-hub==0.21.4
-accelerate==0.27.2
+huggingface-hub==0.23.0  # Ensure compatibility with langchain-huggingface
 
 # Plotting
 plotly==5.19.0
